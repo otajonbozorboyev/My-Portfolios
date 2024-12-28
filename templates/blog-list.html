@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Credentials</title>
+{% endblock %}
+{% block content %}
+<!-- Breadcrumb -->
+<section class="breadcrumb-area">
+    <div class="container">
+        <div class="breadcrumb-content" data-aos="fade-up">
+            <p>HOME - BLOG</p>
+            <h1 class="section-heading"><img src="{% static '/images/star-2.png' %}" alt="Star"> Blog with rightsidebar
+                <img
+                        src="{% static '/images/star-2.png' %}" alt="Star"></h1>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Items -->
+<section class="blog-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog-items">
+                    {% for i in blogs %}
+                    <div class="blog-item" data-aos="zoom-in">
+                        <div class="img-box">
+                            {% if i.image %}
+                            <img src="{{ i.image.url }}" alt="{{ i.title }}">
+                            {% else %}
+                            <img src="{% static '/images/blog1.jpg' %}" alt="Blog">
+                            {% endif %}
+                        </div>
+                        <div class="content">
+                            <span class="meta">{{ i.created_at|date:"d F Y" }} - Comments {{ i.comments_count }},  Share {{ i.share_count }}</span>
+                            <h1><a href="{% url 'blog_detail' slug=i.slug %}">{{ i.title }}</a></h1>
+                            <p>{{ i.truncated_content|safe }}</p>
+                            <a href="{% url 'blog_detail' slug=i.slug %}" class="theme-btn">Read More</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blog-sidebar">
+                    <div class="blog-sidebar-inner">
+
+                        <div class="blog-sidebar-widget search-widget">
+                            <div class="blog-sidebar-widget-inner" data-aos="zoom-in">
+                                <form class="shadow-box">
+                                    <input type="text" placeholder="Search Here...">
+                                    <button class="theme-btn">Search</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="blog-sidebar-widget recent-post-widget" data-aos="zoom-in">
+                            <div class="blog-sidebar-widget-inner shadow-box">
+                                <h3>Recent Posts</h3>
+                                {% for i in recent_posts %}
+                                <ul>
+                                    <li><a href="{% url 'blog_detail' slug=i.slug %}">{{ i.title }}</a></li>
+                                </ul>
+                                {% empty %}
+                                <li>No Recent Post Available</li>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="blog-sidebar-widget categories-widget" data-aos="zoom-in">
+                            <div class="blog-sidebar-widget-inner shadow-box">
+                                <h3>Categories</h3>
+                                {% for i in categories %}
+                                <ul>
+                                    <li><a href="?i={{ i.slug }}">-{{ i.name }}</a></li>
+                                </ul>
+                                {% empty %}
+                                <li>No Categories Available</li>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="blog-sidebar-widget tags-widget" data-aos="zoom-in">
+                            <div class="blog-sidebar-widget-inner shadow-box">
+                                <h3>Tags</h3>
+
+                                <ul>
+                                    <li><a class="theme-btn" href="blog-details.html">SAAS</a></li>
+                                    <li><a class="theme-btn" href="blog-details.html">Development</a></li>
+                                    <li><a class="theme-btn" href="blog-details.html">UI/UX</a></li>
+                                    <li><a class="theme-btn" href="blog-details.html">Web</a></li>
+                                    <li><a class="theme-btn" href="blog-details.html">Figma</a></li>
+                                    <li><a class="theme-btn" href="blog-details.html">Java</a></li>
+                                    <li><a class="theme-btn" href="blog-details.html">WordPress</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

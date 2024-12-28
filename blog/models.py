@@ -46,7 +46,7 @@ class Blog(models.Model):
         get_user_model(), on_delete=models.CASCADE, related_name="blog_posts", null=True, blank=True
         )
     categories = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='blogs', blank=True)
-    tag = models.ManyToManyField(Tag, related_name='blogs', blank=True)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='blogs', blank=True)
     comments_count = models.PositiveIntegerField(default=0, editable=False, help_text="Count comments")
     share_count = models.PositiveIntegerField(default=0, editable=False, help_text="Number of shares")
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft', help_text="Blog status")
