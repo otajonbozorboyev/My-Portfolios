@@ -71,7 +71,7 @@
                                 <h3>Categories</h3>
                                 {% for i in categories %}
                                 <ul>
-                                    <li><a href="?i={{ i.slug }}">-{{ i.name }}</a></li>
+                                    <li><a href="?i={{ i.slug }}">{{ i.name }}</a></li>
                                 </ul>
                                 {% empty %}
                                 <li>No Categories Available</li>
@@ -82,20 +82,15 @@
                         <div class="blog-sidebar-widget tags-widget" data-aos="zoom-in">
                             <div class="blog-sidebar-widget-inner shadow-box">
                                 <h3>Tags</h3>
-
+                                {% for i in tags %}
                                 <ul>
-                                    <li><a class="theme-btn" href="blog-details.html">SAAS</a></li>
-                                    <li><a class="theme-btn" href="blog-details.html">Development</a></li>
-                                    <li><a class="theme-btn" href="blog-details.html">UI/UX</a></li>
-                                    <li><a class="theme-btn" href="blog-details.html">Web</a></li>
-                                    <li><a class="theme-btn" href="blog-details.html">Figma</a></li>
-                                    <li><a class="theme-btn" href="blog-details.html">Java</a></li>
-                                    <li><a class="theme-btn" href="blog-details.html">WordPress</a></li>
+                                    <li><a class="theme-btn" href="?i={{ i.slug }}">{{ i.name }}</a></li>
                                 </ul>
-
+                                {% empty %}
+                                <li>No Tags Available</li>
+                                {% endfor %}
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

@@ -50,7 +50,7 @@ class BlogDetailView(DetailView):
 
         if name and email and message:
             Comment.objects.get(name=name, email=email, message=message)
-            return redirect('blog-detail', slug=blog.slug)
+            return redirect('blog_detail', slug=blog.slug)
 
     def get_queryset(self):
         return Blog.objects.filter(status='published')
@@ -66,3 +66,4 @@ class BlogDetailView(DetailView):
         context['tags'] = Tag.objects.order_by('name')
         context['comments'] = Comment.objects.filter(blog=self.object).order_by('-created_at')
         return context
+
