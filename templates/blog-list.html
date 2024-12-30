@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-<title>Credentials</title>
+    <title>Blog List</title>
 {% endblock %}
 {% block content %}
 <!-- Breadcrumb -->
@@ -32,7 +32,7 @@
                             {% endif %}
                         </div>
                         <div class="content">
-                            <span class="meta">{{ i.created_at|date:"d F Y" }} - Comments {{ i.comments_count }},  Share {{ i.share_count }}</span>
+                            <span class="meta">{{ i.created_at|date:"d F Y" }} - Comments: {{ i.comments_count }},  Share: {{ i.share_count }}</span>
                             <h1><a href="{% url 'blog_detail' slug=i.slug %}">{{ i.title }}</a></h1>
                             <p>{{ i.truncated_content|safe }}</p>
                             <a href="{% url 'blog_detail' slug=i.slug %}" class="theme-btn">Read More</a>
@@ -62,7 +62,7 @@
                                     <li><a href="{% url 'blog_detail' slug=i.slug %}">{{ i.title }}</a></li>
                                 </ul>
                                 {% empty %}
-                                <li>No Recent Post Available</li>
+                                    <li>No Recent Post Available</li>
                                 {% endfor %}
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                                     <li><a href="?i={{ i.slug }}">{{ i.name }}</a></li>
                                 </ul>
                                 {% empty %}
-                                <li>No Categories Available</li>
+                                    <li>No Categories Available</li>
                                 {% endfor %}
                             </div>
                         </div>

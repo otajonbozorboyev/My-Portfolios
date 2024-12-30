@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-<title>Asosiy Sahifa</title>
+<title>Main Page</title>
 {% endblock %}
 
 {% block content %}
@@ -11,15 +11,15 @@
         <div class="row">
             <div class="col-md-6" data-aos="zoom-in">
                 <div class="about-me-box shadow-box">
-                    <a class="overlay-link" href="about.html"></a>
+                    <a class="overlay-link" href="{% url 'about' %}"></a>
                     <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
                     <div class="img-box">
-                        <img src="{% static '/images/me.png' %}" alt="About Me">
+                        <img src="{{ abouts.first.image.url }}" alt="About Me">
                     </div>
                     <div class="infos">
-                        <h4>A WEB DESIGNER</h4>
-                        <h1>David Henderson.</h1>
-                        <p>I am a Web Designer based in san francisco.</p>
+                        <h4 style="font-size: 16px; font-weight: bold;">Project Manager (PM)<br>Software Engineer<br>Machine Learning Engineer</h4>
+                        <h1 style="font-size: 24px; font-weight: 700;">{{ abouts.first.my_name }}</h1>
+                        <p>{{ abouts.first.about_me|safe|truncatewords:10 }}</p>
                         <a href="{% url 'works' %}" class="about-btn">
                             <img src="{% static '/images/icon.svg' %}" alt="Button">
                         </a>
@@ -70,7 +70,7 @@
                                         <h4>SHOWCASE</h4>
                                         <h1>Projects</h1>
                                     </div>
-                                    <a href="#" class="about-btn">
+                                    <a href="{% url 'works' %}" class="about-btn">
                                         <img src="{% static '/images/icon.svg' %}" alt="Button">
                                     </a>
                                 </div>
@@ -101,7 +101,7 @@
                     </div>
                     <div data-aos="zoom-in" class="flex-1">
                         <div class="about-services-box info-box shadow-box h-full">
-                            <a href="service.html" class="overlay-link"></a>
+                            <a href="{% url 'service' %}" class="overlay-link"></a>
                             <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
                             <div class="icon-boxes">
                                 <i class="iconoir-camera"></i>
@@ -114,7 +114,7 @@
                                     <h4>specialization</h4>
                                     <h1>Services Offering</h1>
                                 </div>
-                                <a href="service.html" class="about-btn">
+                                <a href="{% url 'service' %}" class="about-btn">
                                     <img src="{% static '/images/icon.svg' %}" alt="Button">
                                 </a>
                             </div>
@@ -136,7 +136,7 @@
                                     <h4>Stay with me</h4>
                                     <h1>Profiles</h1>
                                 </div>
-                                <a href="contact.html" class="about-btn">
+                                <a href="{% url 'contact' %}" class="about-btn">
                                     <img src="{% static '/images/icon.svg' %}" alt="Button">
                                 </a>
                             </div>

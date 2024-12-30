@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-<title>Credentials</title>
+    <title>Contact</title>
 {% endblock %}
 {% block content %}
 <!-- Contact -->
@@ -16,46 +16,53 @@
                             <i class="iconoir-mail"></i>
                         </div>
                         <div class="right">
-                            <span>MAIL us</span>
-                            <h4>info@bluebase.com</h4>
-                            <h4>info@bluebase2.com</h4>
+                            <span>Contact via Email</span>
+                            <h4><a href="mailto:otajonbozorboyev571@gmail.com">otajonbozorboyev571@gmail.com</a></h4>
                         </div>
                     </li>
-
                     <li class="d-flex align-items-center" data-aos="zoom-in">
                         <div class="icon-box shadow-box">
                             <i class="iconoir-phone"></i>
                         </div>
                         <div class="right">
                             <span>Contact Us</span>
-                            <h4>+1 504-899-8221</h4>
-                            <h4>+1 504-749-5456</h4>
+                            <h4><a href="tel:+998915657203">+998 91 565-72-03</a></h4>
                         </div>
+                        <style>
+                            a {
+                                color: #FFFFFF; /* Oq rang */
+                                text-decoration: none;
+                            }
+                            a:hover {
+                                color: hwb(125 0% 2%); /* Hoverda boshqa rang */
+                            }
+                        </style>
                     </li>
-
                     <li class="d-flex align-items-center" data-aos="zoom-in">
                         <div class="icon-box shadow-box">
-                            <i class="iconoir-pin-alt"></i>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <!-- <i class="iconoir-pin-alt"></i> -->
                         </div>
                         <div class="right">
                             <span>Location</span>
-                            <h4>22 Baker Street, Texas <br>United States <br>W1U 3BW</h4>
+                            <h4><a href="https://www.google.com/maps?q=Tashkent,Uzbekistan" target="_blank">Tashkent, Uzbekistan</a></h4>
                         </div>
                     </li>
                 </ul>
-
                 <h3 data-aos="fade-up">Social Info</h3>
                 <ul class="social-links d-flex align-center" data-aos="zoom-in">
-                    <li><a class="shadow-box" href="#"><i class="iconoir-dribbble"></i></a></li>
-                    <li><a class="shadow-box" href="#"><i class="iconoir-twitter"></i></a></li>
-                    <li><a class="shadow-box" href="#"><i class="iconoir-instagram"></i></a></li>
+                    <li><a class="shadow-box" href="https://www.linkedin.com/in/otajonbozorboyev/" target="_blank"><i class="iconoir-linkedin"></i></a></li>
+                    <li><a class="shadow-box" href="https://github.com/otajonbozorboyev" target="_blank"><i class="iconoir-github"></i></a></li>
+                    <li><a class="shadow-box" href="https://leetcode.com/u/otajonbozorboyev571/" target="_blank">
+                        <i class="iconoir-code"></i> 
+                    </a></li>
+                    <li><a class="shadow-box" href="https://t.me/iotajonbozorboev" target="_blank"><i class="iconoir-telegram"></i></a></li>
                 </ul>
             </div>
-
             <div data-aos="zoom-in" class="contact-form">
                 <div class="shadow-box">
-                    <img src="assets/images/bg1.png" alt="BG" class="bg-img">
-                    <img src="assets/images/icon3.png" alt="Icon">
+                    <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
+                    <img src="{% static '/images/icon3.png' %}" alt="Icon">
                     <h1>Let’s work <span>together.</span></h1>
                     <form method="POST" action="{% url 'contact' %}">
                         {% csrf_token %}
@@ -63,21 +70,20 @@
                             Your message was sent successfully.
                         </div>
                         <div class="input-group">
-                            <input type="text" name="full-name" id="full_name" placeholder="Name *">
+                            <input type="text" name="full_name" id="full_name" placeholder="Name" style="font-size: 1.2em;">
                         </div>
                         <div class="input-group">
-                            <input type="email" name="email" id="email" placeholder="Email *">
+                            <input type="email" name="email" id="email" placeholder="Email" style="font-size: 1.2em;">
                         </div>
                         <div class="input-group">
-                            <textarea name="message" id="message" placeholder="Your Message *"></textarea>
+                            <textarea name="message" id="message" placeholder="Your Message" style="font-size: 1.2em;"></textarea>
                         </div>
                         <div class="input-group">
-                            <button class="theme-btn submit-btn" name="submit" type="submit">Send Message</button>
+                            <button class="theme-btn submit-btn" name="submit" type="submit" style="font-size: 1.2em;">Send Message</button>
                         </div>
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 </section>

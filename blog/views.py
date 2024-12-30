@@ -49,7 +49,7 @@ class BlogDetailView(DetailView):
         message = request.POST.get('message')
 
         if name and email and message:
-            Comment.objects.get(name=name, email=email, message=message)
+            Comment.objects.create(blog=blog, name=name, email=email, message=message)
             return redirect('blog_detail', slug=blog.slug)
 
     def get_queryset(self):

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-<title>Blog Detail</title>
+    <title>Blog Detail</title>
 {% endblock %}
 {% block content %}
 
@@ -60,7 +60,7 @@
                             </div>
                             <div class="comment-form">
                                 <h2>Leave A Reply</h2>
-                                <form method="post">
+                                <form method="POST">
                                     {% csrf_token %}
                                     <div class="input-group">
                                         <input type="text" name="name" placeholder="Name*">
@@ -126,7 +126,7 @@
                                     <li><a class="theme-btn" href="?i={{ i.slug }}">{{ i.name }}</a></li>
                                 </ul>
                                 {% empty %}
-                                <li>No Tags Available</li>
+                                    <li>No Tags Available</li>
                                 {% endfor %}
                             </div>
                         </div>

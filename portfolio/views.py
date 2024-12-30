@@ -1,13 +1,17 @@
+import requests
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView
-from portfolio.models import AboutMe, Education, Experience, Project
+from portfolio.models import AboutMe, Education, Experience, Project, Service
 from portfolios import settings
+from django.contrib import messages
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', context={
+        'abouts': AboutMe.objects.all()
+    })
 
 
 class AboutView(TemplateView):
@@ -28,7 +32,7 @@ class CredentialsView(TemplateView):
         about_me = AboutMe.objects.select_related('user').first()
 
         context['about_me'] = about_me
-        context['experiences'] = Experience.objects.filter(about_me=about_me) if about_me else []
+        context['experiences'] = Experience.objects.filter(about_me=about_me).order_by('-id') if about_me else []
         context['educations'] = Education.objects.filter(about_me=about_me) if about_me else []
         context['social_media'] = about_me.social_media if about_me else {}
         context['skills'] = about_me.skills.all() if about_me else []
@@ -46,7 +50,7 @@ class WorksView(ListView):
 
 class WorkDetailView(DetailView):
     model = Project
-    template_name = 'work_detail.html'
+    template_name = 'work-detail.html'
     context_object_name = 'project'
     
     def get_queryset(self):
@@ -77,27 +81,27 @@ class ContactView(View):
     def post(self, request):
         full_name = request.POST.get('full_name')
         email = request.POST.get('email')
-        message = request.POST.get('message')
+        message_content = request.POST.get('message')
 
         bot_token = settings.BOT_TOKEN
         chat_id = settings.TELEGRAM_CHAT_ID
 
-        telegram_message = (
-            f"**New Contact Message**\n\n",
-            f"Name: {full_name}\n",
-            f"Email: {email}\n",
-            f"Message: {message}"
-        )
+        telegram_message = f"**New Contact Message**\n\nName: {full_name}\nEmail: {email}\nMessage: {message_content}"
         url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
         payload = {
             "chat_id": chat_id,
             "text": telegram_message,
             'parse_mode': 'HTML'
         }
-        response = request.post(url, data=payload)
+        response = requests.post(url, data=payload)
 
         if response.status_code == 200:
-            message.success(request, "Your message has been sent successfully")
+            messages.success(request, "Your message has been sent successfully")
         else:
-            message.error(request, "Failed to send your message. Please try again later")
-        return render('/')
+            messages.error(request, "Failed to send your message. Please try again later")
+        return redirect('/')
+
+
+def service_view(request):
+    return render(request, 'service.html', context={
+        'services': Service.objects.all().order_by()})

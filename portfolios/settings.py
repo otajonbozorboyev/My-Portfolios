@@ -32,10 +32,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tinymce',
-
-    # globals
-
-    # locals
     'portfolio',
     'blog',
 ]

@@ -14,7 +14,7 @@ class TagAdmin(admin.ModelAdmin):
 
 class CommentInline(admin.TabularInline):
     model = Comment
-    extra = 1
+    extra = 0
     readonly_fields = ('created_at', )
 
 
@@ -25,9 +25,3 @@ class BlogAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content')
     prepopulated_fields = {'slug': ('title',)}
     inlines = [CommentInline]
-
-    # def comments_count(self, obj):
-    #     return obj.comments.count()
-    
-    # def share_count(self, obj):
-    #     return obj.share.count()

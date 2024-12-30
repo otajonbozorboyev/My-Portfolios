@@ -1,77 +1,57 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-<title>About Me</title>
+<title>Our Services</title>
 {% endblock %}
 
 {% block content %}
-
-<!-- About -->
-<section class="about-area">
+<!-- Service -->
+<section class="service-area">
     <div class="container">
-        <div class="d-flex about-me-wrap align-items-start gap-24">
-            <div data-aos="zoom-in">
-                <div class="about-image-box shadow-box">
-                    <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
-                    <div class="image-inner">
-                        {% if about_me.image %}
-                        <img src="{{ about_me.image.url }}" alt="About Me">
-                        {% endif %}
+        <h1 class="section-heading" data-aos="fade-up"><img src="{% static '/images/star-2.png' %}" alt="Star"> My
+            Offerings <img
+                    src="{% static '/images/star-2.png' %}" alt="Star"></h1>
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-4">
+                <div class="service-sidebar" data-aos="fade-right">
+                    <div class="service-sidebar-inner shadow-box">
+                        <ul>
+                            {% for i in services %}
+                            <li style="font-size: 24px; line-height: 1.2;">
+                                <img src="{{ i.icon.url }}" style="width: 60px; height: 60px;"><br><br>
+                                {{ i.title }}<br><br>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Content -->
+            <div class="col-md-8">
+                <h1 class="section-heading" data-aos="fade-up"><img src="{% static '/images/star-2.png' %}" alt="Star">
+                    My
+                    Offerings <img src="{% static '/images/star-2.png' %}" alt="Star"></h1>
+                <div class="service-content-wrap" data-aos="zoom-in">
+                    <div class="service-content-inner shadow-box">
+                        <div class="service-items">
+                            {% for i in services %}
+                            <div class="service-item" style="font-size: 20px;">
+                                <!-- Hamma yozuvlar kattalashtiriladi -->
+                                <h3 style="font-size: 20px;">{{ i.title }}</h3> <!-- Title hajmi kattaroq -->
+                                <p style="font-size: 18px;">{{ i.description }}</p> <!-- Description hajmi kichikroq -->
+                            </div>
+                            {% endfor %}
+
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="about-details" data-aos="zoom-in">
-                <h1 class="section-heading" data-aos="fade-up"><img src="{% static '/images/star-2.png' %}" alt="Star">
-                    Self-summary <img src="{% static '/images/star-2.png' %}" alt="Star"></h1>
-                <div class="about-details-inner shadow-box">
-                    <img src="{% static '/images/icon2.png' %}" alt="Star">
-                    <h1>{{ about_me.my_name }}</h1>
-                    <p>{{ about_me.about_me|safe }}</p>
-                </div>
-
-            </div>
         </div>
-
-        <div class="row mt-24">
-            <div class="col-md-6" data-aos="zoom-in">
-                <div class="about-edc-exp about-experience shadow-box">
-                    <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
-                    <h3>EXPERIENCE</h3>
-
-                    <ul>
-                        {% for i in experiences %}
-                        <li>
-                            <p class="date">{{ i.start_year }} - {{ i.end_year }}</p>
-                            <h2>{{ i.position }}</h2>
-                            <p class="type">{{ i.company }}</p>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6" data-aos="zoom-in">
-                <div class="about-edc-exp about-education shadow-box">
-                    <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
-                    <h3>EDUCATION</h3>
-
-                    <ul>
-                        {% for i in educations %}
-                        <li>
-                            <p class="date">{{ i.start_year }} - {{ i.end_year }}</p>
-                            <h2>{{ i.degree }}</h2>
-                            <p class="type">{{ i.university }}</p>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
-
         <div class="row mt-24">
             <div class="col-md-12">
                 <div class="d-flex profile-contact-credentials-wrap gap-24">
-
                     <div data-aos="zoom-in">
                         <div class="about-profile-box info-box shadow-box h-full">
                             <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
@@ -88,7 +68,6 @@
                                     <h4>Stay with me</h4>
                                     <h1>Profiles</h1>
                                 </div>
-
                                 <a href="{% url 'contact' %}" class="about-btn">
                                     <img src="{% static '/images/icon.svg' %}" alt="Button">
                                 </a>
@@ -96,10 +75,9 @@
                             </div>
                         </div>
                     </div>
-
                     <div data-aos="zoom-in" class="flex-1">
                         <div class="about-contact-box info-box shadow-box">
-                            <a class="overlay-link" href="{% url 'contact' %}"></a>
+                            <a class="overlay-link" href="contact.html"></a>
                             <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
                             <img src="{% static '/images/icon2.png' %}" alt="Icon" class="star-icon">
                             <h1>Let's <br>work <span>together.</span></h1>
@@ -108,10 +86,9 @@
                             </a>
                         </div>
                     </div>
-
                     <div data-aos="zoom-in" class="h-full">
                         <div class="about-crenditials-box info-box shadow-box">
-                            <a class="overlay-link" href="{% url 'credentials' %}"></a>
+                            <a class="overlay-link" href="credentials.html"></a>
                             <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
                             <img src="{% static '/images/sign.png' %}" alt="Sign">
                             <div class="d-flex align-items-center justify-content-between">

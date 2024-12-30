@@ -17,9 +17,11 @@ class AboutMeAdmin(admin.ModelAdmin):
 class EducationAdmin(admin.ModelAdmin):
     list_display = ('degree', 'university', 'start_year', 'end_year')
 
+
 @admin.register(Experience)
 class ExperienceAdmin(admin.ModelAdmin):
     list_display = ('position', 'company', 'start_year', 'end_year')
+
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
@@ -49,3 +51,7 @@ class ProjectAdmin(admin.ModelAdmin):
 class YoutubeVideoAdmin(admin.ModelAdmin):
     list_display = ('title', 'link', 'created_at')
     search_fields = ('title', 'link')
+
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'icon')

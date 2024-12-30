@@ -18,6 +18,7 @@ class AboutMe(models.Model):
     image = models.ImageField(upload_to='about_me/image', blank=True, null=True)
     skills = models.ManyToManyField("Skill", blank=True, null=True, help_text='Add your skills')
     my_name = models.CharField(max_length=100, help_text="Enter your name")
+    job = models.CharField(max_length=100, help_text="Enter your job. E.g.: Software Engineer")
     social_media = models.JSONField(null=True, blank=True, help_text="Add your social media links")
 
     def __str__(self):
@@ -57,7 +58,7 @@ class Skill(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=100, help_text="Enter the project title")
-    year = models.CharField(max_length=100, help_text="Enter the year")
+    year = models.CharField(max_length=4, help_text="Enter the year")
     client = models.CharField(max_length=100, help_text="Enter the client name")
     service = models.CharField(max_length=100, help_text="Enter the service name")
     project_type = models.CharField(max_length=50, help_text="Enter the project type, E.g.: Web Development")
@@ -99,7 +100,12 @@ class YoutubeVideo(models.Model):
         return self.title
 
 
+class Service(models.Model):
+    title = models.CharField(max_length=100, help_text="Enter the service. E.g.: Web Development Service")
+    description = models.TextField()
+    icon = models.ImageField(upload_to='images/services', help_text="Enter the service icon")
 
-
+    def __str__(self):
+        return self.title
 
 

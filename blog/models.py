@@ -30,7 +30,6 @@ class Tag(models.Model):
 
 
 class Blog(models.Model):
-
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('published', 'Published'),
@@ -51,7 +50,7 @@ class Blog(models.Model):
     share_count = models.PositiveIntegerField(default=0, editable=False, help_text="Number of shares")
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft', help_text="Blog status")
 
-    def update_count(self):
+    def update_comments_count(self):
         self.comments_count = self.comments.count()
         self.save()
 
