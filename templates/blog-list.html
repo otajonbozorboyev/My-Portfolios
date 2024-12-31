@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-    <title>Blog List</title>
+<title>Blog List</title>
 {% endblock %}
 {% block content %}
 <!-- Breadcrumb -->
@@ -9,9 +9,7 @@
     <div class="container">
         <div class="breadcrumb-content" data-aos="fade-up">
             <p>HOME - BLOG</p>
-            <h1 class="section-heading"><img src="{% static '/images/star-2.png' %}" alt="Star"> Blog with rightsidebar
-                <img
-                        src="{% static '/images/star-2.png' %}" alt="Star"></h1>
+            <h1 class="section-heading"><img src="{% static '/images/star-2.png' %}" alt="Star"> Blogs <img src="{% static '/images/star-2.png' %}" alt="Star"></h1>
         </div>
     </div>
 </section>
@@ -62,7 +60,7 @@
                                     <li><a href="{% url 'blog_detail' slug=i.slug %}">{{ i.title }}</a></li>
                                 </ul>
                                 {% empty %}
-                                    <li>No Recent Post Available</li>
+                                <li>No Recent Post Available</li>
                                 {% endfor %}
                             </div>
                         </div>
@@ -74,11 +72,10 @@
                                     <li><a href="?i={{ i.slug }}">{{ i.name }}</a></li>
                                 </ul>
                                 {% empty %}
-                                    <li>No Categories Available</li>
+                                <li>No Categories Available</li>
                                 {% endfor %}
                             </div>
                         </div>
-
                         <div class="blog-sidebar-widget tags-widget" data-aos="zoom-in">
                             <div class="blog-sidebar-widget-inner shadow-box">
                                 <h3>Tags</h3>

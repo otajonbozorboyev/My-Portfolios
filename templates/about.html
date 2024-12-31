@@ -12,7 +12,7 @@
         <div class="d-flex about-me-wrap align-items-start gap-24">
             <div data-aos="zoom-in">
                 <div class="about-image-box shadow-box">
-                    <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
+                    <img src="{% static '/images/bg1.png' %}" alt="Otajon Bozorboev" class="bg-img">
                     <div class="image-inner">
                         {% if about_me.image %}
                         <img src="{{ about_me.image.url }}" alt="About Me">
@@ -20,7 +20,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="about-details" data-aos="zoom-in">
                 <h1 class="section-heading" data-aos="fade-up"><img src="{% static '/images/star-2.png' %}" alt="Star">
                     Self-summary <img src="{% static '/images/star-2.png' %}" alt="Star"></h1>
@@ -32,13 +31,11 @@
 
             </div>
         </div>
-
         <div class="row mt-24">
             <div class="col-md-6" data-aos="zoom-in">
                 <div class="about-edc-exp about-experience shadow-box">
                     <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
                     <h3>EXPERIENCE</h3>
-
                     <ul>
                         {% for i in experiences %}
                         <li>
@@ -54,7 +51,6 @@
                 <div class="about-edc-exp about-education shadow-box">
                     <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
                     <h3>EDUCATION</h3>
-
                     <ul>
                         {% for i in educations %}
                         <li>
@@ -67,36 +63,30 @@
                 </div>
             </div>
         </div>
-
         <div class="row mt-24">
             <div class="col-md-12">
                 <div class="d-flex profile-contact-credentials-wrap gap-24">
-
                     <div data-aos="zoom-in">
-                        <div class="about-profile-box info-box shadow-box h-full">
-                            <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
-                            <div class="inner-profile-icons shadow-box">
-                                <a href="#">
-                                    <i class="iconoir-dribbble"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="iconoir-twitter"></i>
-                                </a>
+                <div class="about-client-box info-box shadow-box">
+                    <img src="{% static '/images/bg1.png' %}" alt="Otajon Bozorboev" class="bg-img">
+                    <div class="clients d-flex align-items-start gap-24 justify-content-center">
+                        <div class="client-item">
+                            <a href="{% url 'service' %}">
+                                <h1>+3</h1>
+                                <p>Years <br>Experience</p>
+                        </div>
+                        <div class="client-item">
+                                <h1>+10</h1>
+                                <p>CLIENTS <br>WORLDWIDE</p>
                             </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="infos">
-                                    <h4>Stay with me</h4>
-                                    <h1>Profiles</h1>
-                                </div>
-
-                                <a href="{% url 'contact' %}" class="about-btn">
-                                    <img src="{% static '/images/icon.svg' %}" alt="Button">
-                                </a>
-
-                            </div>
+                            <div class="client-item">
+                            <h1>+10</h1>
+                            <p>Total <br>Projects</p>
+                        </a>
                         </div>
                     </div>
-
+                </div>
+                    </div>
                     <div data-aos="zoom-in" class="flex-1">
                         <div class="about-contact-box info-box shadow-box">
                             <a class="overlay-link" href="{% url 'contact' %}"></a>
@@ -108,12 +98,11 @@
                             </a>
                         </div>
                     </div>
-
                     <div data-aos="zoom-in" class="h-full">
                         <div class="about-crenditials-box info-box shadow-box">
                             <a class="overlay-link" href="{% url 'credentials' %}"></a>
-                            <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
-                            <img src="{% static '/images/sign.png' %}" alt="Sign">
+                            <img src="{% static '/images/bg1.png' %}" alt="Otajon Bozorboev" class="bg-img">
+                            <img src="{{ abouts.first.icon.url }}" alt="Sign" style="width: 100px; height: auto;">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="infos">
                                     <h4>more about me</h4>
@@ -125,7 +114,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-    <title>My Projects</title>
+<title>My Projects</title>
 {% endblock %}
 {% block content %}
 <!-- Projects -->
 <section class="projects-area">
     <div class="container">
-        <h1 class="section-heading" data-aos="fade-up"><img src="{% static '/images/star-2.png' %}" alt="Star"> All Projects <img src="{% static '/images/star-2.png' %}" alt="Star"></h1>
+        <h1 class="section-heading" data-aos="fade-up"><img src="{% static '/images/star-2.png' %}" alt="Star"> All
+            Projects <img src="{% static '/images/star-2.png' %}" alt="Star"></h1>
         <div class="col-md-8">
-            <h1 class="section-heading" data-aos="fade-up"><img src="{% static '/images/star-2.png' %}" alt="Star"> All Projects <img src="{% static '/images/star-2.png' %}" alt="Star"></h1>
+            <h1 class="section-heading" data-aos="fade-up"><img src="{% static '/images/star-2.png' %}" alt="Star"> All
+                Projects <img src="{% static '/images/star-2.png' %}" alt="Star"></h1>
             <div class="d-flex align-items-start gap-24">
                 {% for i in projects %}
                 <div data-aos="zoom-in" class="flex-1">
                     <div class="project-item shadow-box">
                         <a class="overlay-link" href="{% url 'work_detail' slug=i.slug %}"></a>
-                        <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
+                        <img src="{% static '/images/bg1.png' %}" alt="Otajon Bozorboev" class="bg-img">
                         <div class="project-img">
                             {% if i.images.first %}
                             <img src="{{ i.images.first.image.url }}" alt="Project">
@@ -27,6 +29,7 @@
                             <div class="project-info">
                                 <p>{{ i.services }}</p>
                                 <h1>{{ i.client }}</h1>
+                                <p>{{ i.description|safe|truncatewords:7 }}</p>
                             </div>
                             <a href="{% url 'work_detail' slug=i.slug %}" class="project-btn">
                                 <img src="{% static '/images/icon.svg' %}" alt="Button">

@@ -27,6 +27,10 @@ class ExperienceAdmin(admin.ModelAdmin):
 class SkillAdmin(admin.ModelAdmin):
     list_display = ('name', )
 
+@admin.register(Language)
+class LanguageAdmin(admin.ModelAdmin):
+    list_display = ('name', )
+
 
 class ProjectImageInline(admin.TabularInline):
     model = ProjectImage

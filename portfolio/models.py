@@ -16,11 +16,13 @@ class AboutMe(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     about_me = HTMLField(null=True, blank=True, help_text = "Write something about yourself")
     image = models.ImageField(upload_to='about_me/image', blank=True, null=True)
-    skills = models.ManyToManyField("Skill", blank=True, null=True, help_text='Add your skills')
+    skills = models.ManyToManyField("Skill", blank=True, help_text='Add your skills')
     my_name = models.CharField(max_length=100, help_text="Enter your name")
     job = models.CharField(max_length=100, help_text="Enter your job. E.g.: Software Engineer")
     social_media = models.JSONField(null=True, blank=True, help_text="Add your social media links")
-
+    icon = models.ImageField(upload_to='about_me/icon', blank=True, null=True)
+    image1 = models.ImageField(upload_to='about_me/image', blank=True, null=True)
+    image2 = models.ImageField(upload_to='about_me/image', blank=True, null=True)
     def __str__(self):
         return self.my_name
 
@@ -50,6 +52,12 @@ class Experience(models.Model):
 
 
 class Skill(models.Model):
+    name = models.CharField(max_length=100, unique=True, help_text="Enter the skill name, E.g.: Python")
+
+    def __str__(self):
+        return self.name
+
+class Language(models.Model):
     name = models.CharField(max_length=100, unique=True, help_text="Enter the skill name, E.g.: Python")
 
     def __str__(self):

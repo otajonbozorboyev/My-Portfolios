@@ -18,6 +18,17 @@
     * Responsive
 
 */
+.skills-wrap .d-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal-width columns */
+    grid-gap: 25px; /* Spacing between the items */
+}
+
+.skill-item {
+    text-align: center;
+    /* Optional: Adjust the appearance of individual skill items */
+}
+
 :root {
     --primary_color: #5B78F6;
     --dark: #323232;
@@ -1947,6 +1958,7 @@ ol {
     }
     .credential-area .skills-wrap .skill-items,
     .info-box.about-client-box .clients {
+        text-align: center;
         grid-template-columns: 1fr;
     }
     .footer-area .footer-content .footer-menu {

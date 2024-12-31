@@ -17,7 +17,8 @@
                         <img src="{{ abouts.first.image.url }}" alt="About Me">
                     </div>
                     <div class="infos">
-                        <h4 style="font-size: 16px; font-weight: bold;">Project Manager (PM)<br>Software Engineer<br>Machine Learning Engineer</h4>
+                        <h4 style="font-size: 16px; font-weight: bold;">Project Manager (PM)<br>Software Engineer<br>Machine
+                            Learning Engineer</h4>
                         <h1 style="font-size: 24px; font-weight: 700;">{{ abouts.first.my_name }}</h1>
                         <p>{{ abouts.first.about_me|safe|truncatewords:10 }}</p>
                         <a href="{% url 'works' %}" class="about-btn">
@@ -32,12 +33,11 @@
                         <div class="banner shadow-box">
                             <div class="marquee">
                                 <div>
-                                    <span>LATEST WORK AND <b>FEATURED</b> <img src="{% static '/images/star1.svg' %}"
-                                                                               alt="Star"> LATEST WORK AND <b>FEATURED</b> <img
-                                            src="{% static '/images/star1.svg' %}" alt="Star"> LATEST WORK AND <b>FEATURED</b> <img
-                                            src="{% static '/images/star1.svg' %}" alt="Star"> LATEST WORK AND <b>FEATURED</b> LATEST WORK AND <img
-                                            src="{% static '/images/star1.svg' %}" alt="Star"> LATEST WORK AND <b>FEATURED</b> LATEST WORK AND <img
-                                            src="{% static '/images/star1.svg' %}" alt="Star"></span>
+                                    <img src="{{ abouts.first.icon.url }}" alt="Logo" style="width: 30px;" alt="Star">WEB DEVELOPMENT
+                                    <img src="{{ abouts.first.icon.url }}" alt="Logo" style="width: 30px;" alt="Star">MOBILE DEVELOPMENT
+                                    <img src="{{ abouts.first.icon.url }}" alt="Logo" style="width: 30px;" alt="Star">WEB DESIGN
+                                    <img src="{{ abouts.first.icon.url }}" alt="Logo" style="width: 30px;" alt="Star">PENTESTING
+                                    <img src="{% static '/images/star1.svg' %}" alt="Star"></span>
                                 </div>
                             </div>
                         </div>
@@ -47,16 +47,15 @@
                             <div class="about-crenditials-box info-box shadow-box h-full">
                                 <a class="overlay-link" href="{% url 'credentials' %}"></a>
                                 <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
-                                <img src="{% static '/images/sign.png' %}" alt="Sign">
+                                <img src="{{ abouts.first.image1.url }}" alt="Sign">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div class="infos">
                                         <h4>more about me</h4>
-                                        <h1>Credentials</h1>
+                                        <h1>About Me</h1>
                                     </div>
                                     <a href="{% url 'credentials' %}" class="about-btn">
                                         <img src="{% static '/images/icon.svg' %}" alt="Button">
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -64,7 +63,7 @@
                             <div class="about-project-box info-box shadow-box h-full">
                                 <a class="overlay-link" href="{% url 'works' %}"></a>
                                 <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
-                                <img src="{% static '/images/my-works.png' %}" alt="My Works">
+                                <img src="{{ abouts.first.image2.url }}" alt="My Works">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div class="infos">
                                         <h4>SHOWCASE</h4>
@@ -87,11 +86,11 @@
                         <div class="about-blog-box info-box shadow-box h-full">
                             <a href="{% url 'blog_list' %}" class="overlay-link"></a>
                             <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
-                            <img src="{% static '/images/gfonts.png' %}" alt="GFonts">
+                            <img src="{{ abouts.first.icon.url }}" alt="Otajon Bozorboev" style="width: 250px; height: auto;">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="infos">
                                     <h4>Blog</h4>
-                                    <h1>GFonts</h1>
+                                    <h1>My Blogs</h1>
                                 </div>
                                 <a href="{% url 'blog_list' %}" class="about-btn">
                                     <img src="{% static '/images/icon.svg' %}" alt="Button">
@@ -102,41 +101,18 @@
                     <div data-aos="zoom-in" class="flex-1">
                         <div class="about-services-box info-box shadow-box h-full">
                             <a href="{% url 'service' %}" class="overlay-link"></a>
-                            <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
+                            <img src="{% static '/images/bg1.png' %}" alt="Otajon Bozorboev" class="bg-img">
                             <div class="icon-boxes">
-                                <i class="iconoir-camera"></i>
-                                <i class="iconoir-design-pencil"></i>
-                                <i class="iconoir-color-filter"></i>
-                                <i class="iconoir-dev-mode-phone"></i>
+                                {% for i in services %}
+                                <img src="{{ i.icon.url }}" alt="Photos" style="width: 70px; height: 70px;">
+                                {% endfor %}
                             </div>
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="infos">
                                     <h4>specialization</h4>
-                                    <h1>Services Offering</h1>
+                                    <h1>Our Services</h1>
                                 </div>
                                 <a href="{% url 'service' %}" class="about-btn">
-                                    <img src="{% static '/images/icon.svg' %}" alt="Button">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-aos="zoom-in">
-                        <div class="about-profile-box info-box shadow-box h-full">
-                            <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
-                            <div class="inner-profile-icons shadow-box">
-                                <a href="#">
-                                    <i class="iconoir-dribbble"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="iconoir-twitter"></i>
-                                </a>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="infos">
-                                    <h4>Stay with me</h4>
-                                    <h1>Profiles</h1>
-                                </div>
-                                <a href="{% url 'contact' %}" class="about-btn">
                                     <img src="{% static '/images/icon.svg' %}" alt="Button">
                                 </a>
                             </div>
@@ -148,31 +124,33 @@
         <div class="row mt-24">
             <div class="col-md-6" data-aos="zoom-in">
                 <div class="about-client-box info-box shadow-box">
-                    <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
+                    <img src="{% static '/images/bg1.png' %}" alt="Otajon Bozorboev" class="bg-img">
                     <div class="clients d-flex align-items-start gap-24 justify-content-center">
                         <div class="client-item">
-                            <h1>07</h1>
-                            <p>Years <br>Experience</p>
+                            <a href="{% url 'service' %}">
+                                <h1>+3</h1>
+                                <p>Years <br>Experience</p>
                         </div>
                         <div class="client-item">
-                            <h1>+125</h1>
-                            <p>CLIENTS <br>WORLDWIDE</p>
-                        </div>
-                        <div class="client-item">
-                            <h1>+210</h1>
+                                <h1>+10</h1>
+                                <p>CLIENTS <br>WORLDWIDE</p>
+                            </div>
+                            <div class="client-item">
+                            <h1>+10</h1>
                             <p>Total <br>Projects</p>
+                        </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6" data-aos="zoom-in">
                 <div class="about-contact-box info-box shadow-box">
-                    <a class="overlay-link" href="contact.html"></a>
-                    <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
+                    <a class="overlay-link" href="{% url 'contact' %}"></a>
+                    <img src="{% static '/images/bg1.png' %}" alt="Otajon Bozorboyev" class="bg-img">
                     <img src="{% static '/images/icon2.png' %}" alt="Icon" class="star-icon">
                     <h1>Let's <br>work <span>together.</span></h1>
-                    <a href="#" class="about-btn">
-                        <img src="{% static '/images/icon.svg' %}" alt="Button">
+                    <a class="overlay-link" href="{% url 'contact' %}"></a>
+                        <img src="{% static 'images/icon.svg' %}" alt="Button">
                     </a>
                 </div>
             </div>

@@ -1,16 +1,18 @@
+from ast import Constant
 import requests
 from django.http import Http404
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView
-from portfolio.models import AboutMe, Education, Experience, Project, Service
+from portfolio.models import AboutMe, Education, Experience, Project, Service, Skill, Language
 from portfolios import settings
 from django.contrib import messages
 
 
 def index(request):
     return render(request, 'index.html', context={
-        'abouts': AboutMe.objects.all()
+        'abouts': AboutMe.objects.all(),
+        'services': Service.objects.all()[:5],
     })
 
 
@@ -35,7 +37,8 @@ class CredentialsView(TemplateView):
         context['experiences'] = Experience.objects.filter(about_me=about_me).order_by('-id') if about_me else []
         context['educations'] = Education.objects.filter(about_me=about_me) if about_me else []
         context['social_media'] = about_me.social_media if about_me else {}
-        context['skills'] = about_me.skills.all() if about_me else []
+        context['skills'] = Skill.objects.all() if about_me else []
+        context['languages'] = Language.objects.all() if about_me else []
         return context
 
 
@@ -64,7 +67,7 @@ class WorkDetailView(DetailView):
             raise Http404("Project does not exist")
 
 
-class ContactView(View):
+class ContactView(TemplateView):
     template_name = 'contact.html'
 
     def get(self, request):
@@ -86,7 +89,7 @@ class ContactView(View):
         bot_token = settings.BOT_TOKEN
         chat_id = settings.TELEGRAM_CHAT_ID
 
-        telegram_message = f"**New Contact Message**\n\nName: {full_name}\nEmail: {email}\nMessage: {message_content}"
+        telegram_message = f"<b>**New Contact Message**</b>\n\n<b>Name:</b> {full_name}\n<b>Email:</b> {email}\n<b>Message:</b> {message_content}"
         url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
         payload = {
             "chat_id": chat_id,
