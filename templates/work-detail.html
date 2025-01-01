@@ -21,7 +21,7 @@
     <div class="container">
         <div data-aos="zoom-in">
             <div class="project-about-2 d-flex shadow-box mb-24">
-                <img src="{% static '/images/bg1.png' %}" alt="BG" class="bg-img">
+                <img src="{% static '/images/bg1.png' %}" alt="Otajon Bozorboev" class="bg-img">
                 <div class="left-details">
                     <img src="{% static '/images/icon3.png' %}" alt="Icon">
                     <ul>
@@ -41,6 +41,36 @@
                             <p>Project</p>
                             <h4>{{ project.project_type }}</h4>
                         </li>
+                        <li class="d-flex align-items-center" data-aos="zoom-in">
+                            <div class="right">
+                                <span>LINK</span>
+                                <h4>
+                                    {% if project.link %}
+                                        <a href="{{ project.link }}" target="_blank">
+                                            {{ project.client }}
+                                        </a>
+                                    {% else %}
+                                        <span class="loading-text">LOADING...</span>
+                                    {% endif %}
+                                </h4>
+                            </div>
+                        </li>
+                        
+                        <style>
+                            a {
+                                color: #FFFFFF; /* Link uchun oq rang */
+                            }
+                            a:hover {
+                                color: hwb(125 0% 2%); /* Hover qilganda rang yashilga o'zgaradi */
+                            }
+                            .loading-text {
+                                color: red; /* LOADING... matni uchun qizil rang */
+                            }
+                            h4 {
+                                margin: 0;
+                                font-size: 16px; /* Link matni o'lchami */
+                            }
+                        </style>
                     </ul>
                 </div>
                 <div class="right-details">
@@ -54,7 +84,9 @@
             <div class="col-md-6" data-aos="zoom-in">
                 {% for i in project.images.all %}
                 <div class="project-details-3-img">
+                    <a href="{{ project.link }}" target="_blank" class="project-link">
                     <img src="{{ i.image.url }}" alt="Project">
+                    </a>
                 </div>
                 {% endfor %}
             </div>

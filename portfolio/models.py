@@ -70,6 +70,7 @@ class Project(models.Model):
     client = models.CharField(max_length=100, help_text="Enter the client name")
     service = models.CharField(max_length=100, help_text="Enter the service name")
     project_type = models.CharField(max_length=50, help_text="Enter the project type, E.g.: Web Development")
+    link = models.URLField(blank=True, null=True, help_text="Enter the project link")
     description = HTMLField(blank=True, null=True, help_text="Write something about the project")
     slug = models.SlugField(max_length=200, unique=True, blank=True)
     is_active = models.BooleanField(default=False)
