@@ -7,7 +7,7 @@ Hello! This repository contains information about me, my skills, and the project
 I’m [Otajon Bozorboev], a software engineer, technical program manager, and machine learning specialist. I have experience in programming, web technologies and artificial intelligence. 
 In this portfolio, you'll find the key projects I’ve worked on and the skills I’ve developed.
 
-## Skills and Technologies
+## TECHNICAL SKILLS
 - **Programming Languages:** C, Python, JavaScript.
 - **Frameworks:** Django, DRF, FastAPI, React, Node.js.
 - **Tools:** Jupyter Notebook, Postman, VsCode, PyCharm.
@@ -15,8 +15,21 @@ In this portfolio, you'll find the key projects I’ve worked on and the skills 
 - **Databases:** SQL, MySQL, PostgreSQL.
 - **Servers and Libraries:** AWS, Ngnix, Docker, Kubernetes, Pandas, NumPy, Matplotlib, Seaborn, etc.
 
-## Projects
+## SOFT SKILLS
+ - Team Management and Leadership;
+ - Effective Communication and Collaboration;
+ - Problem Solving and Analytical Thinking;
+ - Project Prioritization and Working with Stakeholders;
+ - Quick Learning and Ability to Apply Them in Practice;
+ - Flexibility;
+ - Open to Continuous Improvement;
 
+## LANGUAGES
+ - English (C1)
+ - Japanese (B2)
+ - Arabic (B1)
+ - Russian (C1)
+ - Uzbek (Native)
 Below are some of the key projects in my portfolio. Click on the links to explore more details about each project.
 
 ## How to Reach Me
