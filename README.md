@@ -8,12 +8,12 @@ I’m [Otajon Bozorboev], a software engineer, technical program manager, and ma
 In this portfolio, you'll find the key projects I’ve worked on and the skills I’ve developed.
 
 ## TECHNICAL SKILLS
-- **Programming Languages:** C, Python, JavaScript.
-- **Frameworks:** Django, DRF, FastAPI, React, Node.js.
-- **Tools:** Jupyter Notebook, Postman, VsCode, PyCharm.
-- **Version Control:** Git, GitHub, GitLab
-- **Databases:** SQL, MySQL, PostgreSQL.
-- **Servers and Libraries:** AWS, Ngnix, Docker, Kubernetes, Pandas, NumPy, Matplotlib, Seaborn, etc.
+- **Programming Languages:** C, Python, JavaScript
+- **Frameworks:** Django, DRF, FastAPI, React, Node.js
+- **Tools:** Jupyter Notebook, Postman, VsCode, PyCharm
+- **Version Control:** Git, GitHub, GitLab, Deployment, Servers Control, HTTP
+- **Databases:** SQL, MySQL, PostgreSQL
+- **Servers and Libraries:** AWS, Ngnix, CI/CD, Docker, Kubernetes, Pandas, NumPy, Matplotlib, Seaborn, etc
 
 ## SOFT SKILLS
  - Team Management and Leadership;
