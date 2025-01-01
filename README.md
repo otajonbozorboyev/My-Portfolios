@@ -38,7 +38,7 @@ I’m always open to discussing new opportunities, collaborations, or business i
 
 - **Gmail**: [Otajon Bozorboev](otajonbozorboyev571@gmail.com)
 - **LinkedIn**: [Otajon Bozorboev](https://www.linkedin.com/in/otajonbozorboyev/)
-- **LinkedIn**: [Otajon Bozorboev]()
+- **Telegram**: [Otajon Bozorboev](https://t.me/iotajonbozorboev)
 
 ## Conclusion
 
